@@ -4,7 +4,6 @@
 
 <p align="center">
   <a href="https://vickybarai.great-site.net/">🌐 Visit My Portfolio</a> •
-  <a href="https://github.com/Vickybarai?tab=repositories">👨‍💻 View Repositories</a> •
   <a href="mailto: baraivicky@outlook.com">📬 Contact Me</a>
 </p>
 
@@ -18,8 +17,7 @@
 ###  About Me 
 <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" 
        alt="DevOps" 
-       width="60" 
-       height="50" 
+       
        style="border-radius:50%; border:2px solid #2ea44f33; margin-bottom:10px;" />
 
 I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pipelines and managing cloud infrastructure. I am passionate about open-source tools and automating repetitive tasks to improve efficiency.
@@ -82,10 +80,10 @@ I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pi
 
 ### 📫 Connect With Me
 
-<p align="center">
+<div style="display: flex; justify-content: space-between; align-items: center;>
   <a href="[https://www.linkedin.com/in/your-linkedin-id/](https://www.linkedin.com/in/vicky-barai-b06a521b7)" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn" height="30" width="30" /></a>
   <a href="mailto: baraivicky@outlook.com"><img align="center" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" height="30" width="30" /></a>
-</p>
+</div>
 
 <!-- FOOTER -->
 <div align="center" style="padding-bottom:5px;">
@@ -93,8 +91,6 @@ I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pi
   <p style="color:#2ea44f; font-style:italic; font-size:1.1em; margin:0 0 6px 0; letter-spacing:1.5px;">
     Learning • Building • Automating • Improving
   </p>
-  <p style="color:#30363d; font-size:0.78em; margin:0 0 10px 0;">
-    ⚡ Powered by coffee, curiosity & continuous delivery
-  </p>
+  
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=80&section=footer" width="100%"/>
 </div>
