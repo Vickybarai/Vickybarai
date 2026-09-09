@@ -9,7 +9,7 @@
 
 <!-- ANIMATION SECTION -->
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1000&color=2ea44f&center=true&vCenter=true&random=false&width=650&lines=Automating+the+Cloud%2C+One+Pipeline+at+a+Time;From+Code+to+Production+%E2%80%94+Seamlessly;Linux+%7C+AWS+%7C+Docker+%7C+Kubernetes+%7C+Terraform;Open+to+Full-Time+DevOps+Engineer+Roles" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1000&color=2ea44f&center=true&vCenter=true&random=false&width=650&lines=Automating+the+Cloud%2C+One+Pipeline+at+a+Time;From+Code+to+Production+%E2%80%94+Seamlessly;Linux+%7C+AWS+%7C+Docker+%7C+Kubernetes+%7C+Terraform;Open+to+Full-Time+DevOps+Engineer+Roles" alt="Typing SVG" align="center" style="padding-bottom:5px />
 </div>
 
 ---
@@ -17,8 +17,8 @@
 ###  About Me 
 <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" 
        alt="DevOps" 
-       width="100%"
-       height=""
+       width="50%"
+       height="%"
        style="border-radius:50%; border:2px solid #2ea44f33; margin-bottom:10px;" />
 
 I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pipelines and managing cloud infrastructure. I am passionate about open-source tools and automating repetitive tasks to improve efficiency.
@@ -78,11 +78,15 @@ I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pi
 </div>
 
 ---
-
-<div style="display: flex; justify-content: center; gap: 20px; align-items: center;">
-  <a href="https://www.linkedin.com/in/vicky-barai-b06a521b7" target="_blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn" width="40" height="40" /></a>
-  <a href="mailto:baraivicky@outlook.com"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" width="40" height="40" /></a>
-</div>
+<p align="center">
+  <a href="https://www.linkedin.com/in/vicky-barai-b06a521b7" target="_blank">
+    <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn" width="40" height="40" />
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="mailto:baraivicky@outlook.com">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" width="40" height="40" />
+  </a>
+</p>
 
 
 <!-- FOOTER -->
