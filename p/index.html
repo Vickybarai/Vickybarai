@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicky Barai | DevOps Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Inter, sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 3px; }
+        
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        @keyframes float2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        @keyframes gradShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes scrollBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.15); } 50% { box-shadow: 0 0 40px rgba(220, 38, 38, 0.3); } }
+        
+        .anim-fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .anim-fade-up.visible { opacity: 1; transform: translateY(0); }
+        .anim-fade-up.d1 { transition-delay: 0.1s; }
+        .anim-fade-up.d2 { transition-delay: 0.2s; }
+        .anim-fade-up.d3 { transition-delay: 0.3s; }
+        .anim-fade-up.d4 { transition-delay: 0.4s; }
+        .anim-fade-up.d5 { transition-delay: 0.5s; }
+        .anim-fade-up.d6 { transition-delay: 0.6s; }
+        
+        .anim-slide-left { opacity: 0; transform: translateX(-20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .anim-slide-left.visible { opacity: 1; transform: translateX(0); }
+        
+        .anim-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .anim-scale.visible { opacity: 1; transform: scale(1); }
+        
+        .float-a { animation: float 5s ease-in-out infinite; }
+        .float-b { animation: float2 5s ease-in-out 1.5s infinite; }
+        .spin-slow { animation: spinSlow 20s linear infinite; }
+        .scroll-bounce { animation: scrollBounce 2s ease-in-out infinite; }
+        
+        .gradient-text { background: linear-gradient(135deg, #ef4444, #f97316, #ef4444); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradShift 4s ease infinite; }
+        
+        .glass { background: rgba(17, 17, 17, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-hover { transition: border-color 0.3s, box-shadow 0.3s; }
+        .glass-hover:hover { border-color: rgba(220, 38, 38, 0.3); box-shadow: 0 0 30px rgba(220, 38, 38, 0.08); }
+        
+        .timeline-line { position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #dc2626, #242424); }
+        .timeline-dot { position: absolute; left: 14px; width: 14px; height: 14px; border-radius: 50%; background: #dc2626; border: 3px solid #0a0a0a; z-index: 2; }
+        
+        .terminal { background: #111111; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; overflow: hidden; font-family: 'Courier New', monospace; }
+        .terminal-header { background: #1a1a1a; padding: 10px 16px; display: flex; align-items: center; gap: 8px; }
+        .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+        
+        .project-card { transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; display: flex; flex-direction: column; }
+        .project-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+        
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #dc2626; transition: width 0.3s; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        
+        .photo-wrapper { position: relative; }
+        .photo-wrapper::before { content: ''; position: absolute; inset: -3px; border-radius: 16px; background: linear-gradient(135deg, #dc2626, #f97316, #dc2626, #0a0a0a); background-size: 300% 300%; animation: gradShift 6s ease infinite; z-index: 0; }
+        .photo-wrapper img { position: relative; z-index: 1; border-radius: 14px; object-fit: cover; object-position: center top; }
+        .photo-wrapper::after { content: ''; position: absolute; inset: 0; border-radius: 14px; z-index: 2; background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.6) 80%, rgba(10, 10, 10, 0.95) 100%); pointer-events: none; }
+        
+        .toast { position: fixed; bottom: 30px; right: 30px; z-index: 100; padding: 16px 24px; border-radius: 12px; backdrop-filter: blur(12px); animation: fadeUp 0.4s ease; transition: opacity 0.4s, transform 0.4s; }
+        .toast.hide { opacity: 0; transform: translateY(20px); }
+        .toast-success { background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: #10b981; }
+        .toast-error { background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #ef4444; }
+        .toast-info { background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); color: #3b82f6; }
+        
+        .spinner { width: 18px; height: 18px; border: 2px solid rgba(255, 255, 255, 0.3); border-top-color: #fff; border-radius: 50%; animation: spinSlow 0.6s linear infinite; }
+        
+        .skill-chip { padding: 10px 20px; border-radius: 12px; background: rgba(17, 17, 17, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); color: #9ca3af; font-size: 14px; font-weight: 500; cursor: default; transition: all 0.3s ease; }
+        .skill-chip:hover { border-color: rgba(220, 38, 38, 0.5); color: #fff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15); }
+        
+        .text-dark-900 { color: #0a0a0a; }
+        .text-dark-700 { color: #1a1a1a; }
+        .text-dark-600 { color: #242424; }
+        .text-dark-500 { color: #2e2e2e; }
+        .bg-dark-900 { background-color: #0a0a0a; }
+        .bg-dark-700 { background-color: #1a1a1a; }
+        .bg-dark-600 { background-color: #242424; }
+        .bg-dark-500 { background-color: #2e2e2e; }
+        .text-accent-500 { color: #dc2626; }
+        .text-accent-400 { color: #ef4444; }
+        .bg-accent-500 { background-color: #dc2626; }
+        .bg-accent-500\/10 { background-color: rgba(220, 38, 38, 0.1); }
+        .bg-accent-500\/20 { background-color: rgba(220, 38, 38, 0.2); }
+        .bg-accent-500\/8 { background-color: rgba(220, 38, 38, 0.08); }
+        .border-accent-500\/20 { border-color: rgba(220, 38, 38, 0.2); }
+        .border-accent-500\/30 { border-color: rgba(220, 38, 38, 0.3); }
+        .border-accent-500\/50 { border-color: rgba(220, 38, 38, 0.5); }
+        .text-accent-400:hover { color: #f97316; }
+    </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+// NOTE: Replace these with your actual EmailJS credentials.
+// TROUBLESHOOTING: Ensure variables in EmailJS Template match: {{name}}, {{email}}, {{message}}
+const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY_HERE"; 
+const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID_HERE";
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID_HERE";
+
+try { emailjs.init(EMAILJS_PUBLIC_KEY); } catch(e) { console.log("EmailJS: waiting for valid public key"); }
+
+function useInView(opts = { threshold: 0.1, rootMargin: "-60px" }) {
+    const ref = useRef(null);
+    const [visible, setVisible] = useState(false);
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } }, opts);
+        obs.observe(el);
+        return () => obs.disconnect();
+    }, []);
+    return [ref, visible];
+}
+
+function Toast({ message, type, onClose }) {
+    useEffect(() => { const t = setTimeout(onClose, 4000); return () => clearTimeout(t); }, []);
+    return (
+        <div className={"toast toast-" + type}>
+            <div className="flex items-center gap-3">
+                <iconify-icon icon={type === "success" ? "lucide:check-circle" : type === "info" ? "lucide:info" : "lucide:alert-circle"} width="20"></iconify-icon>
+                <span className="text-sm font-medium">{message}</span>
+            </div>
+        </div>
+    );
+}
+
+function Navbar() {
+    const [scrolled, setScrolled] = useState(false);
+    const [mobile, setMobile] = useState(false);
+    const [active, setActive] = useState("home");
+    const links = [
+        { id: "home", l: "Home" },
+        { id: "about", l: "About" },
+        { id: "skills", l: "Skills" },
+        { id: "projects", l: "Projects" },
+        { id: "education", l: "Education" },
+        { id: "contact", l: "Contact" }
+    ];
+
+    useEffect(() => {
+        const h = () => {
+            setScrolled(window.scrollY > 50);
+            const ss = ["home", "about", "skills", "projects", "education", "contact"];
+            for (let i = ss.length - 1; i >= 0; i--) {
+                const el = document.getElementById(ss[i]);
+                if (el && window.scrollY >= el.offsetTop - 120) {
+                    setActive(ss[i]);
+                    break;
+                }
+            }
+        };
+        window.addEventListener("scroll", h);
+        return () => window.removeEventListener("scroll", h);
+    }, []);
+
+    return (
+        <nav className={"fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 " + (scrolled ? "glass shadow-lg" : "bg-transparent")} style={{ animation: "fadeIn 0.5s ease" }}>
+            <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+                <a href="#home" className="text-2xl font-bold tracking-tight flex-shrink-0">
+                    <span className="text-white">V</span><span className="text-accent-500">.</span><span className="text-white">Barai</span>
+                </a>
+                <div className="hidden md:flex items-center gap-6 lg:gap-8">
+                    {links.map(l => (
+                        <a key={l.id} href={"#" + l.id} className={"nav-link text-sm font-medium tracking-wide transition-colors duration-300 " + (active === l.id ? "text-white active" : "text-gray-400 hover:text-white")}>
+                            {l.l}
+                        </a>
+                    ))}
+                    <a href="#contact" className="ml-2 px-5 py-2.5 bg-accent-500 text-white text-sm font-semibold rounded-lg hover:bg-accent-600 transition-all duration-300 hover:scale-105 flex-shrink-0">Contact Me</a>
+                </div>
+                <button className="md:hidden text-white p-2" onClick={() => setMobile(!mobile)}>
+                    <iconify-icon icon={mobile ? "lucide:x" : "lucide:menu"} width="24"></iconify-icon>
+                </button>
+            </div>
+            {mobile && (
+                <div className="absolute top-20 left-0 right-0 glass border-t border-white/5 md:hidden" style={{ animation: "fadeUp 0.3s ease" }}>
+                    <div className="flex flex-col p-6 gap-4">
+                        {links.map(l => (<a key={l.id} href={"#" + l.id} onClick={() => setMobile(false)} className="text-gray-300 hover:text-white font-medium py-2 transition-colors text-center">{l.l}</a>))}
+                        <a href="#contact" onClick={() => setMobile(false)} className="mt-2 px-5 py-3 bg-accent-500 text-white text-sm font-semibold rounded-lg text-center">Contact Me</a>
+                    </div>
+                </div>
+            )}
+        </nav>
+    );
+}
+
+function Hero() {
+    return (
+        <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 z-0">
+                {/* 1. Base Gradient Background */}
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom right, #0a0a0a, #111111, #0a0a0a)" }}></div>
+                {/* 2. REMOVED: The large background image div as requested */}
+                {/* 3. Overlay Gradient for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-b from-dark-900/80 via-dark-900/90 to-dark-900"></div>
+            </div>
+
+            {/* Decorative animated blobs */}
+            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-accent-500/10 rounded-full blur-[120px] float-a"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-[150px] float-b"></div>
+            
+            {/* Grid pattern */}
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }}></div>
+
+            {/* FIX 1: Added pt-28 to prevent Badge overlapping Navbar "Home" link */}
+            {/* FIX 2: Added pb-24 to prevent Social Icons overlapping Scroll Icon */}
+            <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center pt-28 pb-24">
+                <div style={{ animation: "fadeUp 0.5s ease 0.2s both" }}>
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300 font-medium">
+                        <span className="w-2 h-2 bg-green-500 rounded-full" style={{ animation: "scrollBounce 1.5s ease-in-out infinite" }}></span>
+                        Open to Full-Time Opportunities
+                    </span>
+                </div>
+
+                <div style={{ animation: "fadeUp 0.5s ease 0.4s both" }} className="mb-4 mt-8">
+                    <span className="text-accent-500 font-mono text-sm">$ whoami</span>
+                </div>
+
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tighter leading-none mb-6" style={{ animation: "fadeUp 0.6s ease 0.5s both" }}>
+                    <span className="text-white">Vicky</span><br />
+                    <span className="gradient-text">Barai</span>
+                </h1>
+
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-400 font-light tracking-tight mb-4" style={{ animation: "fadeUp 0.5s ease 0.7s both" }}>
+                    DevOps Engineer
+                </p>
+
+                <p className="text-sm sm:text-base text-gray-500 max-w-2xl mx-auto mb-8 lg:mb-10" style={{ animation: "fadeUp 0.5s ease 0.85s both" }}>
+                    Building scalable cloud infrastructure, automating CI/CD pipelines, and orchestrating containerized applications with precision.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full" style={{ animation: "fadeUp 0.5s ease 1s both" }}>
+                    <a href="#projects" className="group px-6 sm:px-8 py-3.5 sm:py-4 bg-accent-500 text-white font-semibold rounded-xl hover:bg-accent-600 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 shadow-lg shadow-accent-500/25 w-full sm:w-auto">
+                        View My Projects
+                        <iconify-icon icon="lucide:arrow-down" width="18" className="group-hover:translate-y-1" style={{ transition: "transform 0.3s" }}></iconify-icon>
+                    </a>
+
+                    {/* NEW: Resume Button */}
+                    <a 
+                        href="./Vicky Barai Resume.pdf" 
+                        download="Vicky Barai Resume.pdf"
+                        className="px-6 sm:px-8 py-3.5 sm:py-4 border border-white/10 text-white font-semibold rounded-xl hover:border-accent-500/50 hover:bg-white/5 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"
+                    >
+                        <iconify-icon icon="lucide:file-text" width="18"></iconify-icon>
+                        Resume
+                    </a>
+
+                    <a href="#contact" className="px-6 sm:px-8 py-3.5 sm:py-4 border border-white/10 text-white font-semibold rounded-xl hover:border-accent-500/50 hover:bg-white/5 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto">
+                        <iconify-icon icon="lucide:mail" width="18"></iconify-icon>
+                        Contact Me
+                    </a>
+                </div>
+
+                <div className="flex justify-center gap-4 mt-8 lg:mt-10" style={{ animation: "fadeUp 0.5s ease 1.3s both" }}>
+                    {[
+                        { icon: "lucide:github", href: "https://github.com/Vickybarai" },
+                        { icon: "lucide:linkedin", href: "https://www.linkedin.com/in/vicky-barai-b06a521b7" },
+                        { icon: "lucide:mail", href: "mailto:baraivicky@outlook.com" },
+                    ].map((s, i) => (
+                        <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
+                           className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg border border-white/10 flex items-center justify-center text-gray-400 hover:text-accent-500 hover:border-accent-500/50 transition-all duration-300 hover:scale-110">
+                            <iconify-icon icon={s.icon} width="18"></iconify-icon>
+                        </a>
+                    ))}
+                </div>
+            </div>
+
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-bounce z-20">
+                <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2">
+                    <div className="w-1 h-2 bg-accent-500 rounded-full"></div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function About() {
+    const [ref, vis] = useInView({ threshold: 0.15 });
+    const [imgSrc, setImgSrc] = useState(null); 
+    
+    const stats = [
+        { n: "8", l: "Hands-On Projects" },
+        { n: "10+", l: "DevOps Tools" },
+        { n: "3+", l: "Cloud Platforms" },
+        { n: "7.17", l: "MCA CGPA" }
+    ];
+
+    useEffect(() => {
+        fetch('./base64.txt')
+            .then(response => {
+                if (!response.ok) throw new Error("Network response was not ok");
+                return response.text();
+            })
+            .then(data => setImgSrc(`data:image/png;base64,${data}`))
+            .catch(error => {
+                console.error("Error loading image:", error);
+                setImgSrc("https://picsum.photos/seed/vicky-fallback-photo/400/500.jpg");
+            });
+    }, []);
+
+    return (
+        <section id="about" className="py-20 sm:py-24 relative" ref={ref}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-12 sm:mb-16 anim-fade-up">
+                    <span className="text-accent-500 font-mono text-sm mr-2">01.</span>
+                    <span className="text-sm font-semibold uppercase tracking-widest text-gray-400">About Me</span>
+                    <div className="w-16 h-0.5 bg-accent-500 mx-auto mt-4"></div>
+                </div>
+
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <div className={"relative flex justify-center anim-fade-up " + (vis ? "visible" : "")}>
+                        <div className="relative w-72 h-96 sm:w-80 sm:h-[400px]">
+                            <div className="absolute inset-[-16px] rounded-2xl border-2 border-dashed border-accent-500/20 spin-slow"></div>
+                            <div className="absolute inset-0 rounded-2xl bg-accent-500/8 blur-[40px]" style={{ animation: "pulseGlow 4s ease-in-out infinite" }}></div>
+                            <div className="photo-wrapper w-full h-full">
+                                <img src={imgSrc} alt="Vicky Barai - DevOps Engineer" className="w-full h-full" />
+                            </div>
+                            <div className="absolute -top-3 -right-6 px-3 py-1.5 glass rounded-lg text-xs font-semibold text-accent-400 float-a z-10 shadow-lg">AWS</div>
+                            <div className="absolute top-1/3 -left-8 px-3 py-1.5 glass rounded-lg text-xs font-semibold text-accent-400 float-b z-10 shadow-lg">Docker</div>
+                            <div className="absolute bottom-16 -right-8 px-3 py-1.5 glass rounded-lg text-xs font-semibold text-accent-400 float-a z-10 shadow-lg">K8s</div>
+                            <div className="absolute -bottom-3 left-8 px-3 py-1.5 glass rounded-lg text-xs font-semibold text-accent-400 float-b z-10 shadow-lg">Terraform</div>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col justify-center">
+                        <div className={"terminal mb-6 sm:mb-8 anim-fade-up d2 " + (vis ? "visible" : "")}>
+                            <div className="terminal-header">
+                                <div className="terminal-dot bg-red-500"></div>
+                                <div className="terminal-dot bg-yellow-500"></div>
+                                <div className="terminal-dot bg-green-500"></div>
+                                <span className="text-xs text-gray-500 ml-2">about_vicky.sh</span>
+                            </div>
+                            <div className="p-4 text-sm leading-relaxed">
+                                <p><span className="text-accent-500">$</span> <span className="text-gray-400">cat summary.txt</span></p>
+                                <p className="text-gray-300 mt-2">
+                                    As an MCA Recent Graduate with a strong foundation in DevOps practices, I have built multiple hands-on infrastructure projects demonstrating expertise in cloud architecture, CI/CD automation, and container orchestration. Through self-directed learning and practical implementations, I have developed proficiency in <span className="text-accent-400">Docker</span> and <span className="text-accent-400">Kubernetes</span> for containerization, <span className="text-accent-400">Terraform</span> and <span className="text-accent-400">Ansible</span> for Infrastructure as Code, and <span className="text-accent-400">Jenkins</span> and <span className="text-accent-400">GitHub Actions</span> for continuous integration/deployment.
+                                </p>
+                                <p className="text-gray-300 mt-3">
+                                    My hands-on experience includes setting up secure AWS infrastructure with VPCs, subnets, and IAM roles, configuring Nginx and Apache web servers, implementing monitoring with Prometheus and Grafana, and managing cloud resources with Infrastructure as Code. I am eager to apply these skills in a production environment to build scalable, automated infrastructure for enterprise systems.
+                                </p>
+                                <p className="text-accent-500 mt-3">$ <span style={{ animation: "scrollBounce 1s ease-in-out infinite" }}>_</span></p>
+                            </div>
+                        </div>
+
+                        <div className={"grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 anim-fade-up d3 " + (vis ? "visible" : "")}>
+                            {stats.map((s, i) => (
+                                <div key={i} className="text-center p-3 sm:p-4 rounded-xl bg-dark-700/50 border border-white/5 hover:border-accent-500/20 transition-colors">
+                                    <div className="text-xl sm:text-2xl font-bold text-accent-500">{s.n}</div>
+                                    <div className="text-xs text-gray-500 mt-1">{s.l}</div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className={"mt-4 sm:mt-6 flex flex-wrap gap-2 sm:gap-3 anim-fade-up d4 " + (vis ? "visible" : "")}>
+                            {["📍 Nagpur, Maharashtra", "📅 15/03/2002", "🎓 MCA Graduate"].map((info, i) => (
+                                <span key={i} className="text-xs text-gray-400 px-3 py-1.5 rounded-full border border-white/5 bg-dark-700/50 hover:border-accent-500/20 transition-colors cursor-default">{info}</span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function Skills() {
+    const [ref, vis] = useInView({ threshold: 0.1 });
+    const [tab, setTab] = useState(0);
+
+    const cats = [
+        { title: "DevOps Tools", icon: "lucide:settings", desc: "Core DevOps technologies for containerization and CI/CD", skills: ["Docker", "Docker Compose", "Kubernetes", "Jenkins", "GitHub Actions", "GitLab CI/CD", "Maven", "SonarQube"] },
+        { title: "Cloud Platforms", icon: "lucide:cloud-cog", desc: "Cloud computing platforms and services", skills: ["AWS (EC2, S3, IAM, VPC, RDS, EKS, ECR, Lambda, CloudWatch, CloudFront)", "Azure (Basic)", "GCP (Basic)"] },
+        { title: "Infrastructure & Automation", icon: "lucide:cloud", desc: "Tools for managing infrastructure as code and configuration automation", skills: ["Terraform", "Ansible"] },
+        { title: "Web Servers", icon: "lucide:server", desc: "Server technologies for serving web applications", skills: ["Nginx", "Apache HTTPD", "Apache Tomcat"] },
+        { title: "Databases", icon: "lucide:database", desc: "Database technologies for data persistence and management", skills: ["MySQL", "MongoDB Atlas", "Amazon DynamoDB"] },
+        { title: "Version Control & Registries", icon: "lucide:git-branch", desc: "Platforms for code hosting, version control, and container image storage", skills: ["GitHub", "GitLab", "Docker Hub", "AWS ECR"] },
+        { title: "Monitoring Tools", icon: "lucide:activity", desc: "Tools for monitoring, logging, and observability", skills: ["AWS CloudWatch", "Prometheus & Grafana", "Datadog"] },
+        { title: "AI Tools", icon: "lucide:brain", desc: "AI-assisted development and productivity tools", skills: ["ChatGPT", "Claude", "Google Gemini", "GitHub Copilot"] },
+        { title: "Programming", icon: "lucide:code", desc: "Languages for scripting, automation, and development", skills: ["Python (Scripting & Automation)", "Bash Scripting"] },
+        { title: "Collaboration", icon: "lucide:users", desc: "Tools for team collaboration and project management", skills: ["Jira", "Microsoft Teams"] },
+        // Added Version Control & Registries
+    ];
+
+    return (
+        <section id="skills" className="py-20 sm:py-24 relative" ref={ref}>
+            <div className="absolute top-1/2 left-0 w-72 h-72 bg-accent-500/5 rounded-full blur-[120px]"></div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className={"text-center mb-12 sm:mb-16 anim-fade-up " + (vis ? "visible" : "")}>
+                    <span className="text-accent-500 font-mono text-sm mr-2">02.</span>
+                    <span className="text-sm font-semibold uppercase tracking-widest text-gray-400">Technical Skills</span>
+                    <div className="w-16 h-0.5 bg-accent-500 mx-auto mt-4"></div>
+                </div>
+
+                <div className={"flex flex-wrap justify-center gap-2 mb-8 sm:mb-10 anim-fade-up d1 " + (vis ? "visible" : "")}>
+                    {cats.map((c, i) => (
+                        <button key={i} onClick={() => setTab(i)}
+                            className={"px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-2 " + (tab === i ? "bg-accent-500 text-white shadow-lg shadow-accent-500/25" : "bg-dark-700 text-gray-400 hover:text-white hover:bg-dark-600 border border-white/5")}>
+                            <iconify-icon icon={c.icon} width="16"></iconify-icon>
+                            <span>{c.title}</span>
+                        </button>
+                    ))}
+                </div>
+
+                <div className={"max-w-3xl mx-auto anim-fade-up d2 " + (vis ? "visible" : "")}>
+                    <div className="text-center mb-6 sm:mb-8">
+                        <p className="text-gray-500 text-xs sm:text-sm mb-2">{cats[tab].desc}</p>
+                        <div className="w-12 h-0.5 bg-accent-500/30 mx-auto"></div>
+                    </div>
+                    <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+                        {cats[tab].skills.map((s, i) => (
+                            <div key={i} className="skill-chip" style={{ animation: "fadeUp 0.3s ease", animationDelay: (i * 0.05) + "s" }}>
+                                {s}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div className={"mt-12 sm:mt-16 anim-fade-up d3 " + (vis ? "visible" : "")}>
+                    <h3 className="text-center text-base sm:text-lg font-semibold text-white mb-6 sm:mb-8">Key Strengths</h3>
+                    <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+                        {["Cloud Architecture (AWS)", "Container Orchestration (K8s)", "CI/CD Pipeline Design", "Troubleshooting & Debugging", "Infrastructure Automation", "Team Collaboration", "Fast Learner & Self-Driven"].map((s, i) => (
+                            <span key={i} className={"px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-dark-700 border border-white/5 text-gray-300 hover:border-accent-500/30 hover:text-accent-400 transition-all duration-300 cursor-default anim-scale " + (vis ? "visible" : "")} style={{ transitionDelay: (i * 0.05) + "s" }}>{s}</span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function ProjectCard({ p, i }) {
+    const [ref, vis] = useInView({ threshold: 0.1, rootMargin: "-30px" });
+    return (
+        <div ref={ref} className={"project-card glass glass-hover rounded-xl sm:rounded-2xl p-4 sm:p-6 h-full anim-fade-up " + (vis ? "visible" : "")} style={{ transitionDelay: (i * 0.1) + "s" }}>
+            <div className="flex items-start justify-between gap-3 sm:gap-4 mb-3 sm:mb-4">
+                <div className="flex-1 min-w-0">
+                    <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-accent-400 transition-colors duration-300 leading-tight">{p.title}</h3>
+                </div>
+                <div className="w-10 h-10 rounded-lg bg-accent-500/10 flex items-center justify-center flex-shrink-0">
+                    <iconify-icon icon={p.icon} width="20" className="text-accent-500"></iconify-icon>
+                </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2 mb-4 sm:mb-5">
+                {p.tech.map((t, j) => (
+                    <span key={j} className="px-2 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider bg-dark-700/80 text-gray-400 rounded border border-white/5">{t}</span>
+                ))}
+            </div>
+
+            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed mb-3 sm:mb-4 flex-grow">{p.desc}</p>
+
+            {p.highlights && (
+                <div className="pt-3 sm:pt-4 border-t border-white/5 mb-3 sm:mb-4">
+                    <p className="text-[10px] sm:text-xs text-gray-500 mb-2 font-semibold uppercase tracking-wider">Key Features:</p>
+                    <ul className="space-y-1 sm:space-y-1.5">
+                        {p.highlights.map((h, j) => (
+                            <li key={j} className="flex items-start gap-2 text-[10px] sm:text-xs text-gray-500">
+                                <iconify-icon icon="lucide:check-circle" width="12" className="text-accent-500 mt-0.5 flex-shrink-0"></iconify-icon>
+                                <span>{h}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
+            {p.repo && (
+                <div className="mt-auto pt-3 sm:pt-4 border-t border-white/5 flex justify-end">
+                    <a href={p.repo} target="_blank" rel="noopener noreferrer"
+                       className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 text-[10px] sm:text-xs font-semibold text-accent-400 hover:text-accent-300 transition-colors">
+                        <iconify-icon icon="lucide:github" width="16"></iconify-icon>
+                        View Repository
+                    </a>
+                </div>
+            )}
+        </div>
+    );
+}
+
+function Projects() {
+    const [ref, vis] = useInView({ threshold: 0.05 });
+    const projects = [
+        {
+            title: "B2B Medical ERP - Infrastructure Setup",
+            icon: "lucide:briefcase-medical",
+            tech: ["Docker", "Kubernetes", "AWS EKS", "Nginx", "Terraform", "Prometheus", "Grafana"],
+            desc: "Containerized and deployed a multi-tenant B2B ERP application using Kubernetes on AWS EKS. Configured Nginx as an Ingress controller for traffic routing and set up Prometheus and Grafana for application monitoring. Implemented Infrastructure as Code with Terraform for reproducible deployments.",
+            repo: "https://github.com/Vickybarai/edublitz-b2b-medical-erp",
+            highlights: ["Deployed containerized application on AWS EKS with auto-scaling configuration", "Configured Nginx Ingress Controller with TLS termination for secure traffic routing", "Set up Prometheus for metrics collection and Grafana for custom monitoring dashboards", "Implemented Terraform IaC for VPC, subnets, security groups, and EKS cluster provisioning", "Configured AWS IAM roles for pod-to-service communication with least-privilege access"]
+        },
+        {
+            title: "Serverless Container Deployment on AWS",
+            icon: "lucide:cloud-lightning",
+            tech: ["AWS Fargate", "ECS", "ECR", "Terraform", "IAM", "CloudWatch", "VPC", "Subnets"],
+            desc: "Implemented a serverless containerized application deployment using AWS Fargate. Set up VPC with public and private subnets, configured IAM roles for task execution, and established CloudWatch logging and metrics. Used Terraform for complete infrastructure provisioning and ECR for Docker image lifecycle management.",
+            repo: "https://github.com/Vickybarai/serverless-ecs-ecr",
+            highlights: ["Configured AWS VPC with public and private subnets for network isolation", "Deployed containers using AWS Fargate (ECS) with task definitions and service configurations", "Set up AWS ECR for Docker image storage with lifecycle policies", "Implemented Terraform IaC for complete infrastructure provisioning and state management", "Configured CloudWatch for container logs, metrics, and alarms with automated responses"]
+        },
+        {
+            title: "Automated Jenkins Scaling with AWS ECS",
+            icon: "lucide:workflow",
+            tech: ["Jenkins", "Groovy", "AWS ECS", "ECR", "Shell Scripting", "Docker", "CloudWatch"],
+            desc: "Built a dynamic Jenkins CI/CD pipeline with auto-scaling capability on AWS ECS. Configured Jenkins master and agent nodes as containerized workloads with CloudWatch-based scaling triggers. Implemented shared libraries for reusable pipeline logic and Groovy scripts for parameterized builds.",
+            repo: "https://github.com/Vickybarai/jenkines-with-dynamic-cicd",
+            highlights: ["Deployed Jenkins master and agents as containerized workloads on AWS ECS", "Implemented parameterized Jenkins pipelines with dynamic environment configuration", "Configured auto-scaling based on CloudWatch metrics for build queue length", "Set up Docker-in-Docker capability for containerized build environments", "Used Groovy shared libraries for reusable pipeline functions and standardized deployment stages"]
+        },
+        {
+            title: "Automated CI/CD with GitHub Actions",
+            icon: "lucide:git-commit",
+            tech: ["GitHub Actions", "YAML", "Docker", "AWS EC2", "SSH", "Shell Scripting", "S3"],
+            desc: "Created end-to-end CI/CD workflows using GitHub Actions to automate deployment to AWS EC2 instances. Configured multi-stage pipelines with Docker image builds, pushed to container registry, and SSH-based deployments. Implemented rollback strategies and deployment validation through shell scripts.",
+            repo: "https://github.com/Vickybarai/Github-action-cicd",
+            highlights: ["Implemented multi-stage CI-CD pipelines with build, test, and deploy jobs", "Automated Docker image building and pushing to container registry", "Configured secure SSH-based deployment to AWS EC2 instances with key-based authentication", "Set up AWS S3 for artifact storage and deployment history", "Implemented rollback capabilities and deployment validation through automated health checks"]
+        },
+        {
+            title: "Kubernetes Monitoring & Observability Stack",
+            icon: "lucide:activity",
+            tech: ["Kubernetes", "Prometheus", "Grafana", "Helm", "AWS EKS", "Grafana Loki", "Alertmanager"],
+            desc: "Deployed a complete monitoring and observability stack on Kubernetes using Prometheus for metrics collection, Grafana for visualization, and Alertmanager for alerting. Used Helm charts for reproducible deployments and configured ServiceMonitor CRDs for custom scrape configurations.",
+            repo: "https://github.com/Vickybarai/eks-prometheus-grafana",
+            highlights: ["Deployed Prometheus with ServiceMonitor custom resources for pod-level metrics scraping", "Created custom Grafana dashboards for cluster health, resource utilization, and application metrics", "Configured Alertmanager with notification routes to Slack and email for critical alerts", "Deployed Grafana Loki for centralized log aggregation and querying with LogQL", "Used Helm charts for version-controlled monitoring stack deployment and upgrades"]
+        },
+        {
+            title: "Student Management System - Infrastructure",
+            icon: "lucide:building-2",
+            tech: ["Docker", "Docker Compose", "AWS EC2", "Nginx", "Terraform", "VPC", "Security Groups", "CloudWatch"],
+            desc: "Orchestrated the infrastructure deployment for a 3-tier application on AWS EC2. Containerized application components using Docker and Docker Compose, configured Nginx as reverse proxy and load balancer, and set up secure VPC with security groups. Implemented Terraform for infrastructure provisioning and CloudWatch for monitoring.",
+            repo: "https://github.com/Vickybarai",
+            highlights: ["Set up AWS VPC with private and public subnets for network security", "Configured Nginx as reverse proxy and load balancer with SSL termination", "Containerized application components using Docker and Docker Compose for consistent deployments", "Implemented Terraform IaC for EC2 instances, security groups, and networking components", "Configured CloudWatch for instance monitoring, log aggregation, and automated alerting"]
+        },
+        {
+            title: "E-Commerce - Deployment Automation",
+            icon: "lucide:shopping-cart",
+            tech: ["Docker", "GitHub Actions", "AWS EC2", "Nginx", "SSL/TLS", "Shell Scripting", "Health Checks"],
+            desc: "Automated the deployment pipeline for an e-commerce platform using GitHub Actions. Containerized the application with Docker, configured Nginx web server with SSL/TLS certificates, and implemented health check monitoring for high availability. Used shell scripts for automated deployment and rollback procedures.",
+            repo: "https://github.com/Vickybarai/shopitry-e-commerce",
+            highlights: ["Containerized application services using Docker for environment consistency", "Configured Nginx web server with gzip compression and SSL/TLS encryption", "Implemented automated deployment pipeline using GitHub Actions with SSH-based deployments", "Set up health check endpoints and automated monitoring for service availability", "Configured shell scripts for blue-green deployment strategies and instant rollbacks"]
+        },
+        {
+            title: "Netflix Clone - Containerized Deployment",
+            icon: "lucide:film",
+            tech: ["Docker", "Docker Compose", "Apache HTTPD", "GitHub Actions", "AWS EC2", "Monitoring"],
+            desc: "Containerized a video streaming platform and deployed it on AWS EC2 infrastructure. Configured Apache HTTPD web server for serving static assets and implemented CI/CD automation using GitHub Actions. Set up container orchestration with Docker Compose and monitoring for deployment tracking.",
+            repo: "https://github.com/Vickybarai/Netflix-clone",
+            highlights: ["Containerized application using Docker for isolated deployment environments", "Configured Apache HTTPD web server with virtual hosts and compression optimization", "Implemented GitHub Actions workflow for automated build, test, and deployment pipelines", "Set up Docker Compose for multi-container orchestration with dependency management", "Configured monitoring and logging for deployment validation and performance tracking"]
+        }
+    ];
+
+    return (
+        <section id="projects" className="py-20 sm:py-24 relative" ref={ref}>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-accent-500/5 rounded-full blur-[150px]"></div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className={"text-center mb-12 sm:mb-16 anim-fade-up " + (vis ? "visible" : "")}>
+                    <span className="text-accent-500 font-mono text-sm mr-2">03.</span>
+                    <span className="text-sm font-semibold uppercase tracking-widest text-gray-400">Hands-On Projects</span>
+                    <div className="w-16 h-0.5 bg-accent-500 mx-auto mt-4"></div>
+                    <p className="text-gray-500 text-xs sm:text-sm mt-4 max-w-lg mx-auto">A collection of 8 infrastructure and automation projects demonstrating my skills in cloud architecture, CI/CD pipelines, container orchestration, and DevOps best practices.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+                    {projects.map((p, i) => <ProjectCard key={i} p={p} i={i} />)}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function Education() {
+    const [ref, vis] = useInView({ threshold: 0.1 });
+    const timeline = [
+        { year: "2024 — 2026", title: "MCA (Master of Computer Applications)", inst: "Wainganga College of Engineering, Nagpur", detail: "CGPA: 7.17" },
+        { year: "2021 — 2024", title: "BCA (Bachelor of Computer Applications)", inst: "Santaji Mahavidyalaya, Nagpur", detail: "" },
+        { year: "2019 — 2021", title: "12th (PCMB)", inst: "J.E.S. College, Jalna", detail: "" },
+    ];
+    
+    // Updated Certs with Links
+    const certs = [
+        { title: "NPTEL — Cloud Computing", link: "#" },
+        { title: "NPTEL — Python for Data Science", link: "#" },
+        { title: "Linux with Ubuntu", link: "http://ude.my/UC-8000e907-b8d8-4285-aadc-86921e483f94", issuer: "Udemy" },
+        { title: "AWS Certifications", link: "http://ude.my/UC-a5d0e6e0-f9be-482d-b1e2-992d1b390e48", issuer: "Udemy" },
+        { title: "Docker", link: "http://ude.my/UC-18e90f3b-332c-4b06-87cb-a61de342893d", issuer: "Udemy" },
+        { title: "Terraform", link: "http://ude.my/UC-3e88239b-fa25-4e9a-a58c-61fc73be28aa", issuer: "Udemy" },
+    ];
+    
+    const langs = ["English", "Hindi", "Marathi"];
+    
+    const quickInfo = [
+        { icon: "lucide:map-pin", t: "Nagpur, Maharashtra" },
+        { icon: "lucide:calendar", t: "DOB: 15/03/2002" },
+        { icon: "lucide:mail", t: "baraivicky@outlook.com", href: "mailto:baraivicky@outlook.com" },
+        // Masked Phone Number with 'Call' button
+        { 
+            icon: "lucide:phone", 
+            t: "+91 9325193XXX", // Masked Display
+            href: "tel:+919325193140", // Hidden Full Number for Dialer
+            type: "phone" 
+        }
+    ];
+
+    return (
+        <section id="education" className="py-20 sm:py-24 relative" ref={ref}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className={"text-center mb-12 sm:mb-16 anim-fade-up " + (vis ? "visible" : "")}>
+                    <span className="text-accent-500 font-mono text-sm mr-2">04.</span>
+                    <span className="text-sm font-semibold uppercase tracking-widest text-gray-400">Education & Certifications</span>
+                    <div className="w-16 h-0.5 bg-accent-500 mx-auto mt-4"></div>
+                </div>
+                <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+                    <div className="lg:col-span-2">
+                        <h3 className={"text-base sm:text-lg font-semibold text-white mb-6 sm:mb-8 flex items-center gap-2 anim-fade-up " + (vis ? "visible" : "")}>
+                            <iconify-icon icon="lucide:graduation-cap" width="20" className="text-accent-500"></iconify-icon> Education
+                        </h3>
+                        <div className="relative pl-12">
+                            <div className="timeline-line"></div>
+                            {timeline.map((item, i) => (
+                                <div key={i} className={"relative pb-8 sm:pb-10 last:pb-0 anim-slide-left " + (vis ? "visible" : "")} style={{ transitionDelay: (i * 0.15) + "s" }}>
+                                    <div className="timeline-dot" style={{ top: "6px" }}></div>
+                                    <div className="glass glass-hover rounded-xl p-4 sm:p-5">
+                                        <span className="text-[10px] sm:text-xs font-mono text-accent-500">{item.year}</span>
+                                        <h4 className="text-sm sm:text-base font-semibold text-white mt-1">{item.title}</h4>
+                                        <p className="text-xs sm:text-sm text-gray-400 mt-1">{item.inst}</p>
+                                        {item.detail && <p className="text-[10px] sm:text-xs text-accent-400 font-semibold mt-2">{item.detail}</p>}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="space-y-8 sm:space-10">
+                        <div>
+                            <h3 className={"text-base sm:text-lg font-semibold text-white mb-4 sm:mb-6 flex items-center gap-2 anim-fade-up d1 " + (vis ? "visible" : "")}>
+                                <iconify-icon icon="lucide:award" width="20" className="text-accent-500"></iconify-icon> Certifications
+                            </h3>
+                            <div className="space-y-3">
+                                {certs.map((c, i) => (
+                                    // Updated Layout: Added justify-between for the link icon
+                                    <div key={i} className={"flex items-center justify-between group p-3 rounded-lg bg-dark-700/50 border border-white/5 anim-fade-up " + (vis ? "visible" : "")} style={{ transitionDelay: (0.2 + i * 0.1) + "s" }}>
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 rounded-lg bg-accent-500/10 flex items-center justify-center flex-shrink-0"><iconify-icon icon="lucide:badge-check" width="16" className="text-accent-500"></iconify-icon></div>
+                                            <div className="flex flex-col">
+                                                <span className="text-xs sm:text-sm text-gray-300 font-medium">{c.title}</span>
+                                                {c.issuer && <span className="text-[10px] text-gray-500">{c.issuer}</span>}
+                                            </div>
+                                        </div>
+                                        {c.link && c.link !== "#" && (
+                                            <a href={c.link} target="_blank" rel="noopener noreferrer" className="text-accent-500/50 hover:text-accent-500 transition-colors p-1">
+                                                <iconify-icon icon="lucide:external-link" width="14"></iconify-icon>
+                                            </a>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className={"text-base sm:text-lg font-semibold text-white mb-4 sm:mb-6 flex items-center gap-2 anim-fade-up d3 " + (vis ? "visible" : "")}>
+                                <iconify-icon icon="lucide:languages" width="20" className="text-accent-500"></iconify-icon> Languages
+                            </h3>
+                            <div className="flex flex-wrap gap-2">
+                                {langs.map((l, i) => <span key={i} className="px-3 sm:px-4 py-2 rounded-lg bg-dark-700 border border-white/5 text-xs sm:text-sm text-gray-300 font-medium">{l}</span>)}
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className={"text-base sm:text-lg font-semibold text-white mb-4 sm:mb-6 flex items-center gap-2 anim-fade-up d4 " + (vis ? "visible" : "")}>
+                                <iconify-icon icon="lucide:info" width="20" className="text-accent-500"></iconify-icon> Quick Info
+                            </h3>
+                            <div className="space-y-3">
+                                {quickInfo.map((item, i) => (
+                                    // Container updated to justify-between for the button layout
+                                    <div key={i} className="flex items-center justify-between gap-3 group p-2 rounded-lg hover:bg-white/5 transition-colors text-xs sm:text-sm text-gray-400">
+                                        
+                                        {/* Left Side: Icon + Text */}
+                                        <div className="flex items-center gap-3">
+                                            <iconify-icon icon={item.icon} width="14" className="text-accent-500 flex-shrink-0"></iconify-icon>
+                                            <span className="font-medium text-gray-300">{item.t}</span>
+                                        </div>
+
+                                        {/* Right Side: Phone Button OR Standard Link */}
+                                        {item.type === 'phone' ? (
+                                            <a 
+                                                href={item.href} 
+                                                className="text-[10px] sm:text-xs bg-accent-500/10 text-accent-400 border border-accent-500/30 px-3 py-1 rounded-md hover:bg-accent-500 hover:text-white transition-all duration-300 font-semibold flex items-center gap-1"
+                                            >
+                                                <iconify-icon icon="lucide:phone-call" width="12"></iconify-icon>
+                                                Call
+                                            </a>
+                                        ) : item.href ? (
+                                            <a href={item.href} className="opacity-0 group-hover:opacity-100 hover:text-accent-400 transition-all">
+                                                <iconify-icon icon="lucide:external-link" width="14"></iconify-icon>
+                                            </a>
+                                        ) : null}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function Contact() {
+    const [ref, vis] = useInView({ threshold: 0.1 });
+    const [form, setForm] = useState({ name: '', email: '', message: '' });
+    const [loading, setLoading] = useState(false);
+    const [toast, setToast] = useState(null);
+
+    const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        // Check if keys are still placeholders
+        const isConfigured = EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY_HERE";
+
+        if (!isConfigured) {
+            // If not configured, fallback to mailto immediately
+            setLoading(false);
+            const subject = encodeURIComponent("Portfolio Inquiry from: " + form.name);
+            const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`);
+            window.location.href = `mailto:baraivicky@outlook.com?subject=${subject}&body=${body}`;
+            setToast({ type: "info", message: "Redirecting to your email client..." });
+            return;
+        }
+
+        // Try EmailJS
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, EMAILJS_PUBLIC_KEY)
+            .then((response) => {
+                setLoading(false);
+                // If response status is OK but user reports no email, 
+                // it's usually a Template Variable mismatch in EmailJS Dashboard.
+                setToast({ type: "success", message: "Message sent successfully via EmailJS!" });
+                setForm({ name: '', email: '', message: '' });
+            }, (error) => {
+                // If EmailJS fails (e.g. network error, bad keys), fallback to mailto
+                console.error("EmailJS Error:", error);
+                setLoading(false);
+                
+                // Fallback to mailto
+                const subject = encodeURIComponent("Portfolio Inquiry from: " + form.name);
+                const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`);
+                window.location.href = `mailto:baraivicky@outlook.com?subject=${subject}&body=${body}`;
+                
+                setToast({ type: "info", message: "EmailJS failed. Redirecting to email client..." });
+            });
+    };
+
+    return (
+        <section id="contact" className="py-20 sm:py-24 relative" ref={ref}>
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-accent-500/5 rounded-full blur-[120px]"></div>
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className={"text-center mb-12 sm:mb-16 anim-fade-up " + (vis ? "visible" : "")}>
+                    <span className="text-accent-500 font-mono text-sm mr-2">05.</span>
+                    <span className="text-sm font-semibold uppercase tracking-widest text-gray-400">Get In Touch</span>
+                    <div className="w-16 h-0.5 bg-accent-500 mx-auto mt-4"></div>
+                    <p className="text-gray-400 mt-6 max-w-xl mx-auto text-sm sm:text-base">
+                        I am currently open to full-time opportunities. Whether you have a question, a project proposal, or just want to say hi, my inbox is always open!
+                    </p>
+                </div>
+
+                <div className={"glass rounded-2xl p-6 sm:p-10 anim-fade-up d1 " + (vis ? "visible" : "")}>
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                        <div className="grid sm:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                                <label htmlFor="name" className="text-xs font-medium text-gray-400 uppercase tracking-wider ml-1">Name</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    required
+                                    value={form.name}
+                                    onChange={handleChange}
+                                    className="w-full bg-dark-700 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-all duration-300"
+                                    placeholder="your name"
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label htmlFor="email" className="text-xs font-medium text-gray-400 uppercase tracking-wider ml-1">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    required
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    className="w-full bg-dark-700 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-all duration-300"
+                                    placeholder="your@example.com"
+                                />
+                            </div>
+                        </div>
+                        <div className="space-y-2">
+                            <label htmlFor="message" className="text-xs font-medium text-gray-400 uppercase tracking-wider ml-1">Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                required
+                                value={form.message}
+                                onChange={handleChange}
+                                className="w-full bg-dark-700 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-all duration-300 resize-none"
+                                placeholder="Your message here..."
+                            ></textarea>
+                        </div>
+                        <div className="pt-2">
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="w-full sm:w-auto px-8 py-3.5 bg-accent-500 text-white font-semibold rounded-lg hover:bg-accent-600 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-accent-500/25"
+                            >
+                                {loading ? (
+                                    <>
+                                        <div className="spinner"></div>
+                                        Sending...
+                                    </>
+                                ) : (
+                                    <>
+                                        Send Message
+                                        <iconify-icon icon="lucide:send" width="18"></iconify-icon>
+                                    </>
+                                )}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div className={"mt-10 text-center anim-fade-up d2 " + (vis ? "visible" : "")}>
+                    <p className="text-gray-500 text-sm">Or reach out directly via</p>
+                    <a href="mailto:baraivicky@outlook.com" className="text-accent-400 hover:text-accent-300 font-medium mt-2 inline-block transition-colors">baraivicky@outlook.com</a>
+                </div>
+            </div>
+            {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
+        </section>
+    );
+}
+
+function Footer() {
+    return (
+        <footer className="py-8 border-t border-white/5 bg-dark-900">
+            <div className="max-w-7xl mx-auto px-4 text-center">
+                <p className="text-gray-500 text-sm">
+                    &copy; {new Date().getFullYear()} Vicky Barai. Built with <span className="text-accent-500">React</span> & <span className="text-accent-500">Tailwind</span>.
+                </p>
+            </div>
+        </footer>
+    );
+}
+
+function App() {
+    return (
+        <>
+            <Navbar />
+            <main>
+                <Hero />
+                <About />
+                <Skills />
+                <Projects />
+                <Education />
+                <Contact />
+            </main>
+            <Footer />
+        </>
+    );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+</body>
+</html>
