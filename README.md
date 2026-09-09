@@ -17,7 +17,7 @@
 ###  About Me 
 <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" 
        alt="DevOps" 
-       width="70%"
+       width="100%"
        height=""
        style="border-radius:50%; border:2px solid #2ea44f33; margin-bottom:10px;" />
 
@@ -79,9 +79,9 @@ I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pi
 
 ---
 
-<div style="display: flex; justify-content: space-between; align-items: center;>
+<div style="display: flex; justify-content: space-between; >
   <a href="https://www.linkedin.com/in/vicky-barai-b06a521b7" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn" height="30" width="30" /></a>
-  <a href="mailto: baraivicky@outlook.com"><img align="center" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" height="30" width="30" /></a>
+  <a href="mailto: baraivicky@outlook.com"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" height="30" width="30" /></a>
 </div>
 
 <!-- FOOTER -->
