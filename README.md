@@ -1,4 +1,3 @@
-
 <h1 align="center">Hi 👋, I'm Vicky Barai</h1>
 <h3 align="center">Aspiring DevOps & Cloud Engineer | Automating the Future</h3>
 
@@ -8,18 +7,21 @@
 </p>
 
 <!-- ANIMATION SECTION -->
+<!-- Fixed missing closing quote below -->
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1000&color=2ea44f&center=true&vCenter=true&random=false&width=650&lines=Automating+the+Cloud%2C+One+Pipeline+at+a+Time;From+Code+to+Production+%E2%80%94+Seamlessly;Linux+%7C+AWS+%7C+Docker+%7C+Kubernetes+%7C+Terraform;Open+to+Full-Time+DevOps+Engineer+Roles" alt="Typing SVG" align="center" style="padding-bottom:5px />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1000&color=2ea44f&center=true&vCenter=true&random=false&width=650&lines=Automating+the+Cloud%2C+One+Pipeline+at+a+Time;From+Code+to+Production+%E2%80%94+Seamlessly;Linux+%7C+AWS+%7C+Docker+%7C+Kubernetes+%7C+Terraform;Open+to+Full-Time+DevOps+Engineer+Roles" alt="Typing SVG" align="center" style="padding-bottom:5px;" />
 </div>
 
 ---
 
 ###  About Me 
+<div align="center">
 <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" 
        alt="DevOps" 
-       width="50%"
-       height="%"
+       width="120" 
+       height="120"
        style="border-radius:50%; border:2px solid #2ea44f33; margin-bottom:10px;" />
+</div>
 
 I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pipelines and managing cloud infrastructure. I am passionate about open-source tools and automating repetitive tasks to improve efficiency.
 
@@ -66,14 +68,17 @@ I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pi
 ---
 
 <!-- STATS SECTION -->
+<!-- Removed custom CSS flexbox and fixed the broken Streak Stats URL -->
 <div align="center">
   <h2 style="color:#e6edf3; font-size:1.3em; margin:0 0 18px 0;">📊 GitHub Stats & Activity</h2>
-  <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center;">
-    <img src="https://github-readme-stats.vercel.app/api?username=Vickybarai&theme=dark&hide_border=true&include_all_commits=true&count_private=false&show_icons=true&icon_color=2ea44f&title_color=2ea44f&text_color=c9d1d9&bg_color=0d1117"/>
-    <img src="https://nirzak-streak-stats.vercel.app/?user=Vickybarai&theme=dark&hide_border=true&stroke=2ea44f&ring=2ea44f&fire=2ea44f&currStreakLabel=2ea44f&background=0d1117"/>
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vickybarai&theme=dark&hide_border=true&include_all_commits=true&count_private=false&layout=compact&title_color=2ea44f&text_color=c9d1d9&bg_color=0d1117"/>
-  </div>
-  <br>
+  
+  <img src="https://github-readme-stats.vercel.app/api?username=Vickybarai&theme=dark&hide_border=true&include_all_commits=true&count_private=false&show_icons=true&icon_color=2ea44f&title_color=2ea44f&text_color=c9d1d9&bg_color=0d1117"/>
+  <br/><br/>
+  <!-- Fixed the URL below to the official public endpoint -->
+  <img src="https://streak-stats.demolab.com/?user=Vickybarai&theme=dark&hide_border=true&stroke=2ea44f&ring=2ea44f&fire=2ea44f&currStreakLabel=2ea44f"/>
+  <br/><br/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vickybarai&theme=dark&hide_border=true&include_all_commits=true&count_private=false&layout=compact&title_color=2ea44f&text_color=c9d1d9&bg_color=0d1117"/>
+  <br/><br/>
   <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" style="max-width:100%;"/>
 </div>
 
@@ -98,3 +103,4 @@ I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pi
   
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=80&section=footer" width="100%"/>
 </div>
+```
