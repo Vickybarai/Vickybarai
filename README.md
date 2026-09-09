@@ -79,10 +79,11 @@ I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pi
 
 ---
 
-<div style="display: flex; justify-content: space-between; >
-  <a href="https://www.linkedin.com/in/vicky-barai-b06a521b7" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn"  /></a>
-  <a href="mailto: baraivicky@outlook.com"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" /></a>
+<div style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+  <a href="https://www.linkedin.com/in/vicky-barai-b06a521b7" target="_blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn" width="40" height="40" /></a>
+  <a href="mailto:baraivicky@outlook.com"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" width="40" height="40" /></a>
 </div>
+
 
 <!-- FOOTER -->
 <div align="center" style="padding-bottom:5px;">
