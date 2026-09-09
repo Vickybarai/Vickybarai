@@ -69,10 +69,26 @@ I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pi
 
 <!-- STATS SECTION -->
 <!-- Removed custom CSS flexbox and fixed the broken Streak Stats URL -->
-<div align="center">
+
+
+<!-- <div align="center">
   <h2 style="color:#e6edf3; font-size:1.3em; margin:0 0 18px 0;">📊 GitHub Stats & Activity</h2>
   
-  <img src="https://github-readme-stats.vercel.app/api?username=Vickybarai&theme=dark&hide_border=true&include_all_commits=true&count_private=false&show_icons=true&icon_color=2ea44f&title_color=2ea44f&text_color=c9d1d9&bg_color=0d1117"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=Vickybarai&theme=dark&hide_border=true&include_all_commits=true&count_private=false&show_icons=true&icon_color=2ea44f&title_color=2ea44f&text_color=c9d1d9&bg_color=0d1117"/> -->
+
+  
+  
+### 📊 📊 GitHub Stats & Activity
+
+<p align="center">
+  <img align="center" src="https://github-readme-stats.vercel.app/api?username=Vickybarai&show_icons=true&theme=radical" alt="Vicky's GitHub stats" />
+</p>
+
+<p align="center">
+  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=Vickybarai&theme=radical" alt="Vicky's GitHub streak" />
+</p>
+
+
   <br/><br/>
   <!-- Fixed the URL below to the official public endpoint -->
   <img src="https://streak-stats.demolab.com/?user=Vickybarai&theme=dark&hide_border=true&stroke=2ea44f&ring=2ea44f&fire=2ea44f&currStreakLabel=2ea44f"/>
