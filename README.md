@@ -17,7 +17,7 @@
 ###  About Me 
 <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" 
        alt="DevOps" 
-       width="50%"
+       width="100%"
        height="%"
        style="border-radius:50%; border:2px solid #2ea44f33; margin-bottom:10px;" />
 
