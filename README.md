@@ -42,20 +42,17 @@ I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pi
 
 ### 🔮 Future Exploring Tools
 
-<!-- Tools with Icon Support -->
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=cloudflare,aws,elasticsearch,gradle,grafana" />
-</p>
-
-<!-- Tools with Badge Support (Icons not available) -->
-<p align="center">
-  <img src="https://img.shields.io/badge/Amazon%20Redshift-8C4FFF?style=for-the-badge&logo=amazon-redshift&logoColor=white" />
-  <img src="https://img.shields.io/badge/netdata-06993f?style=for-the-badge&logo=netdata&logoColor=white" />
-  <img src="https://img.shields.io/badge/OpenTofu-333333?style=for-the-badge&logo=OpenTofu&logoColor=white" />
-  <img src="https://img.shields.io/badge/Spinnaker-1695D2?style=for-the-badge&logo=Spinnaker&logoColor=white" />
-  <img src="https://img.shields.io/badge/Redmine-B32024?style=for-the-badge&logo=Redmine&logoColor=white" />
-  <img src="https://img.shields.io/badge/New%20Relic-1CE783?style=for-the-badge&logo=new-relic&logoColor=black" />
-</p>
+![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white)
+![Redshift](https://img.shields.io/badge/Amazon%20Redshift-8C4FFF?style=for-the-badge&logo=amazon-redshift&logoColor=white)
+![Elasticsearch](https://img.shields.io/badge/Elastic_Search-005571?style=for-the-badge&logo=elasticsearch&logoColor=white)
+![Netdata](https://img.shields.io/badge/netdata-06993f?style=for-the-badge&logo=netdata&logoColor=white)
+![OpenTofu](https://img.shields.io/badge/OpenTofu-333333?style=for-the-badge&logo=OpenTofu&logoColor=white)
+![Spinnaker](https://img.shields.io/badge/Spinnaker-1695D2?style=for-the-badge&logo=Spinnaker&logoColor=white)
+![Redmine](https://img.shields.io/badge/Redmine-B32024?style=for-the-badge&logo=Redmine&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=Gradle&logoColor=white)
+![New Relic](https://img.shields.io/badge/New%20Relic-1CE783?style=for-the-badge&logo=new-relic&logoColor=black)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
+![Loki](https://img.shields.io/badge/Loki-F46800?style=for-the-badge&logo=grafana&logoColor=white)
 
 ---
 
