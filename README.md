@@ -1,4 +1,4 @@
-
+Here is th
 <h1 align="center">Hi 👋, I'm Vicky Barai</h1>
 <h3 align="center">Aspiring DevOps & Cloud Engineer | Automating the Future</h3>
 
@@ -9,17 +9,19 @@
 
 <!-- ANIMATION SECTION -->
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1000&color=2ea44f&center=true&vCenter=true&random=false&width=650&lines=Automating+the+Cloud%2C+One+Pipeline+at+a+Time;From+Code+to+Production+%E2%80%94+Seamlessly;Linux+%7C+AWS+%7C+Docker+%7C+Kubernetes+%7C+Terraform;Open+to+Full-Time+DevOps+Engineer+Roles" alt="Typing SVG" align="center" style="padding-bottom:5px />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1000&color=2ea44f&center=true&vCenter=true&random=false&width=650&lines=Automating+the+Cloud%2C+One+Pipeline+at+a+Time;From+Code+to+Production+%E2%80%94+Seamlessly;Linux+%7C+AWS+%7C+Docker+%7C+Kubernetes+%7C+Terraform;Open+to+Full-Time+DevOps+Engineer+Roles" alt="Typing SVG" align="center" style="padding-bottom:5px;" />
 </div>
 
 ---
 
 ###  About Me 
-<img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" 
+<div align="center">
+  <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" 
        alt="DevOps" 
-       width="100%"
-       height="%"
+       width="120"  
+       height="120"
        style="border-radius:50%; border:2px solid #2ea44f33; margin-bottom:10px;" />
+</div>
 
 I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pipelines and managing cloud infrastructure. I am passionate about open-source tools and automating repetitive tasks to improve efficiency.
 
@@ -30,42 +32,30 @@ I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pi
 
 ---
 
-### 🛠️ Tech Stack & Tools
+### 🛠️ Tech Stack & Tools (Core)
 
-#### ☁️ Cloud
-![AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
-![Azure](https://img.shields.io/badge/microsoft%20azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)
-
-#### 🐳 DevOps & Containers
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
-![Jenkins](https://img.shields.io/badge/Jenkins-D33833?style=for-the-badge&logo=Jenkins&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
-
-#### 🚀 CI/CD & IaC
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
-![Ansible](https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white)
-
-#### 💻 Languages & OS
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Bash](https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=aws,azure,docker,kubernetes,jenkins,terraform,githubactions,ansible,linux,python,bash,git" />
+</p>
 
 ---
 
-
 ### 🔮 Future Exploring Tools
 
+<!-- Tools with Icon Support -->
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=cloudflare,aws,elasticsearch,gradle,grafana" />
+</p>
 
-![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white)
-![Redshift](https://img.shields.io/badge/Amazon%20Redshift-8C4FFF?style=for-the-badge&logo=amazon-redshift&logoColor=white)
-![Elasticsearch](https://img.shields.io/badge/Elastic_Search-005571?style=for-the-badge&logo=elasticsearch&logoColor=white)
-![Netdata](https://img.shields.io/badge/netdata-06993f?style=for-the-badge&logo=netdata&logoColor=white)
-![OpenTofu](https://img.shields.io/badge/OpenTofu-333333?style=for-the-badge&logo=OpenTofu&logoColor=white)
-![Spinnaker](https://img.shields.io/badge/Spinnaker-1695D2?style=for-the-badge&logo=Spinnaker&logoColor=white)
-![Redmine](https://img.shields.io/badge/Redmine-B32024?style=for-the-badge&logo=Redmine&logoColor=white)
-![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=Gradle&logoColor=white)
+<!-- Tools with Badge Support (Icons not available) -->
+<p align="center">
+  <img src="https://img.shields.io/badge/Amazon%20Redshift-8C4FFF?style=for-the-badge&logo=amazon-redshift&logoColor=white" />
+  <img src="https://img.shields.io/badge/netdata-06993f?style=for-the-badge&logo=netdata&logoColor=white" />
+  <img src="https://img.shields.io/badge/OpenTofu-333333?style=for-the-badge&logo=OpenTofu&logoColor=white" />
+  <img src="https://img.shields.io/badge/Spinnaker-1695D2?style=for-the-badge&logo=Spinnaker&logoColor=white" />
+  <img src="https://img.shields.io/badge/Redmine-B32024?style=for-the-badge&logo=Redmine&logoColor=white" />
+  <img src="https://img.shields.io/badge/New%20Relic-1CE783?style=for-the-badge&logo=new-relic&logoColor=black" />
+</p>
 
 ---
 
@@ -80,17 +70,24 @@ I am a motivated **DevOps Engineer** fresher focused on building robust CI/CD pi
 
 ---
 
-<!-- STATS SECTION -->
-<div align="center">
-  <h2 style="color:#e6edf3; font-size:1.3em; margin:0 0 18px 0;">📊 GitHub Stats & Activity</h2>
-  <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center;">
-    <img src="https://github-readme-stats.vercel.app/api?username=Vickybarai&theme=dark&hide_border=true&include_all_commits=true&count_private=false&show_icons=true&icon_color=2ea44f&title_color=2ea44f&text_color=c9d1d9&bg_color=0d1117"/>
-    <img src="https://nirzak-streak-stats.vercel.app/?user=Vickybarai&theme=dark&hide_border=true&stroke=2ea44f&ring=2ea44f&fire=2ea44f&currStreakLabel=2ea44f&background=0d1117"/>
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vickybarai&theme=dark&hide_border=true&include_all_commits=true&count_private=false&layout=compact&title_color=2ea44f&text_color=c9d1d9&bg_color=0d1117"/>
-  </div>
-  <br>
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" style="max-width:100%;"/>
-</div>
+## ⚡ Live DevOps Activity (Animated)
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake-dark.svg" />
+</p>
+
+---
+
+## 📊 Performance Dashboard
+
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Vickybarai&theme=monokai" />
+</p>
+
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Vickybarai&theme=monokai" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Vickybarai&theme=monokai&utcOffset=5.5" />
+</p>
 
 ---
 <p align="center">
