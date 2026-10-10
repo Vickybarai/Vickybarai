@@ -1,4 +1,4 @@
-Here is th
+
 <h1 align="center">Hi 👋, I'm Vicky Barai</h1>
 <h3 align="center">Aspiring DevOps & Cloud Engineer | Automating the Future</h3>
 
